@@ -34,52 +34,52 @@ class _HeiloAppState extends State<HeiloApp> {
     );
   }
 }
-
-class AuthenticationWrapper extends StatefulWidget {
-  const AuthenticationWrapper({Key? key}) : super(key: key);
-
-  @override
-  State<AuthenticationWrapper> createState() => _AuthenticationWrapperState();
-}
-
-class _AuthenticationWrapperState extends State<AuthenticationWrapper> {
-  // void checkState() async {
-  //   AuthProvider authProvider = Provider.of<AuthProvider>(context, listen: false);
-  //   bool isLoggedIn = await authProvider.isUserSignedIn();
-  //   bool isVerified = await authProvider.isVerified();
-  //
-  //   if (isLoggedIn) {
-  //     if (isVerified) {
-  //       await authProvider.getCurrentUserData();
-  //       UserData? userData = authProvider.userData;
-  //       if (userData == null) {
-  //         Navigator.pushReplacementNamed(context, Routes.PERSONAL_INFO_SCREEN);
-  //       } else {
-  //         Navigator.pushReplacementNamed(context, Routes.HOME_SCREEN);
-  //       }
-  //     } else {
-  //       Navigator.pushReplacementNamed(context, Routes.VERIFY_SCREEN);
-  //     }
-  //   } else {
-  //     Navigator.pushReplacementNamed(context, Routes.SIGN_IN_SCREEN);
-  //   }
-  // }
-
-  @override
-  void initState() {
-    super.initState();
-    Future.delayed(Duration(seconds: 1), () {
-      // checkState();
-      print("Init");
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Loader(),
-      ),
-    );
-  }
-}
+//
+// class AuthenticationWrapper extends StatefulWidget {
+//   const AuthenticationWrapper({Key? key}) : super(key: key);
+//
+//   @override
+//   State<AuthenticationWrapper> createState() => _AuthenticationWrapperState();
+// }
+//
+// class _AuthenticationWrapperState extends State<AuthenticationWrapper> {
+//   // void checkState() async {
+//   //   AuthProvider authProvider = Provider.of<AuthProvider>(context, listen: false);
+//   //   bool isLoggedIn = await authProvider.isUserSignedIn();
+//   //   bool isVerified = await authProvider.isVerified();
+//   //
+//   //   if (isLoggedIn) {
+//   //     if (isVerified) {
+//   //       await authProvider.getCurrentUserData();
+//   //       UserData? userData = authProvider.userData;
+//   //       if (userData == null) {
+//   //         Navigator.pushReplacementNamed(context, Routes.PERSONAL_INFO_SCREEN);
+//   //       } else {
+//   //         Navigator.pushReplacementNamed(context, Routes.HOME_SCREEN);
+//   //       }
+//   //     } else {
+//   //       Navigator.pushReplacementNamed(context, Routes.VERIFY_SCREEN);
+//   //     }
+//   //   } else {
+//   //     Navigator.pushReplacementNamed(context, Routes.SIGN_IN_SCREEN);
+//   //   }
+//   // }
+//
+//   @override
+//   void initState() {
+//     super.initState();
+//     Future.delayed(Duration(seconds: 1), () {
+//       // checkState();
+//       print("Init");
+//     });
+//   }
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: Center(
+//         child: Loader(),
+//       ),
+//     );
+//   }
+// }
