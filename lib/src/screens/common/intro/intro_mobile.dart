@@ -1,18 +1,11 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:heilo/screens/authentication/Popups/auth_popUp.dart';
-import 'package:heilo/screens/authentication/student_phase1/student_phase1.dart';
-import 'package:heilo/screens/teacher/Main_SideMenu/teacher_sidemenu.dart';
-import 'package:heilo/utils/app_routes.dart';
-import 'package:heilo/utils/config.dart';
-import 'package:heilo/utils/dynamic_sizes.dart';
-import 'package:heilo/widgets/text_widget.dart';
+import 'package:heilo_flutter/src/components/temp/text_widget.dart';
+import 'package:heilo_flutter/src/utils/color_const.dart';
+import 'package:heilo_flutter/src/utils/dynamic_sizes.dart';
 import 'package:wave/config.dart';
 import 'package:wave/wave.dart';
-
-import '../../admin/sideMenu/admin_sidemenu_main.dart';
 
 class IntroMobile extends StatefulWidget {
   const IntroMobile({Key? key}) : super(key: key);
@@ -111,7 +104,7 @@ class _IntroMobileState extends State<IntroMobile> {
                         children: [
                           InkWell(
                             onTap: () {
-                              loginPopUpMobile(context);
+                              //loginPopUpMobile(context);
                             },
                             child: Container(
                               alignment: Alignment.center,
@@ -146,7 +139,7 @@ class _IntroMobileState extends State<IntroMobile> {
                           ),
                           InkWell(
                             onTap: () {
-                              signUpPopUpMobile(context);
+                              //signUpPopUpMobile(context);
                             },
                             child: Container(
                               alignment: Alignment.center,
@@ -195,7 +188,7 @@ class _IntroMobileState extends State<IntroMobile> {
                       ),
                       InkWell(
                         onTap: () {
-                          AppRoutes.push(context, StudentPhase1());
+                          //AppRoutes.push(context, StudentPhase1());
                         },
                         child: Container(
                           alignment: Alignment.center,
@@ -236,7 +229,7 @@ class _IntroMobileState extends State<IntroMobile> {
                       ),
                       InkWell(
                         onTap: () {
-                          AppRoutes.push(context, TeacherSideMenu());
+                          //AppRoutes.push(context, TeacherSideMenu());
                         },
                         child: Container(
                           alignment: Alignment.center,
@@ -277,7 +270,7 @@ class _IntroMobileState extends State<IntroMobile> {
                       ),
                       InkWell(
                         onTap: () {
-                          AppRoutes.push(context, AdminSideMenuMain());
+                          //AppRoutes.push(context, AdminSideMenuMain());
                         },
                         child: Container(
                           alignment: Alignment.center,

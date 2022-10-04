@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:heilo_flutter/src/components/animations/loading_animation.dart';
 import 'package:heilo_flutter/src/router/router_helper.dart';
+import 'package:heilo_flutter/src/screens/common/intro/intro.dart';
 
 class HeiloApp extends StatefulWidget {
   const HeiloApp({Key? key}) : super(key: key);
@@ -27,7 +28,7 @@ class _HeiloAppState extends State<HeiloApp> {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: const AuthenticationWrapper(),
+        home: const Intro(),
         onGenerateRoute: RouterHelper.router.generator,
         // initialRoute: Routes.SPLASH_SCREEN,
       ),

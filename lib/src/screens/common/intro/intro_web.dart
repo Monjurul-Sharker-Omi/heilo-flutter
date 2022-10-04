@@ -2,18 +2,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:heilo/screens/admin/sideMenu/admin_sideMenu.dart';
-import 'package:heilo/screens/authentication/Popups/auth_popUp.dart';
-import 'package:heilo/screens/authentication/student_phase1/student_phase1.dart';
-import 'package:heilo/screens/teacher/Main_SideMenu/teacher_sidemenu.dart';
-import 'package:heilo/utils/app_routes.dart';
-import 'package:heilo/utils/config.dart';
-import 'package:heilo/utils/dynamic_sizes.dart';
-import 'package:heilo/widgets/text_widget.dart';
+import 'package:heilo_flutter/src/components/temp/text_widget.dart';
+import 'package:heilo_flutter/src/utils/color_const.dart';
+import 'package:heilo_flutter/src/utils/dynamic_sizes.dart';
+
 import 'package:wave/config.dart';
 import 'package:wave/wave.dart';
-
-import '../../admin/sideMenu/admin_sidemenu_main.dart';
 
 class IntroWeb extends StatefulWidget {
   const IntroWeb({Key? key}) : super(key: key);
@@ -23,7 +17,7 @@ class IntroWeb extends StatefulWidget {
 }
 
 class _IntroWebState extends State<IntroWeb> {
-_buildCard({
+  _buildCard({
     required Config config,
     Color backgroundColor = Colors.transparent,
     required DecorationImage backgroundImage,
@@ -73,11 +67,11 @@ _buildCard({
   @override
   Widget build(BuildContext context) {
     return Container(
-      // color: Colors.amber,
-      height: AppSizes.dynamicHeight(context, 1),
-      child:Stack(
-        children: [
-           _buildCard(
+        // color: Colors.amber,
+        height: AppSizes.dynamicHeight(context, 1),
+        child: Stack(
+          children: [
+            _buildCard(
               backgroundColor: Colors.white,
               config: CustomConfig(
                 gradients: [
@@ -91,181 +85,181 @@ _buildCard({
                 gradientBegin: Alignment.bottomLeft,
                 gradientEnd: Alignment.topRight,
               ),
-              backgroundImage: DecorationImage(
-                  image: AssetImage('')),
+              backgroundImage: DecorationImage(image: AssetImage('')),
               // backgroundImage: AssetImage(assetName),
             ),
-           Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Container(
-                // color: Colors.amber,
-                margin: EdgeInsets.only(
-                  top: AppSizes.dynamicHeight(context, 0.03),
-                  right: 10,
-                ),
-                // width: AppSizes.dynamicWidth(context, 0.2),
-                child: Row(
-                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    InkWell(
-                      onTap: () {
-                        loginPopUp(context);
-                      },
-                      child: Container(
-                        alignment: Alignment.center,
-                        width: 100.w,
-                        height: 25.h,
-                        decoration: BoxDecoration(
-                          color: AppColors.blue,
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: text(context, "LOG  IN", 18.sp, Colors.white,
-                            bold: true),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
                     Container(
-                      alignment: Alignment.center,
-                      width: 2,
-                      height: 25.h,
-                      decoration: BoxDecoration(
-                        color: AppColors.green,
-                        borderRadius: BorderRadius.circular(2),
+                      // color: Colors.amber,
+                      margin: EdgeInsets.only(
+                        top: AppSizes.dynamicHeight(context, 0.03),
+                        right: 10,
                       ),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    InkWell(
-                      onTap: () {
-                        signUpPopUp(context);
-                      },
-                      child: Container(
-                        alignment: Alignment.center,
-                        width: 100.w,
-                        height: 25.h,
-                        decoration: BoxDecoration(
-                          color: AppColors.green,
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: text(context, "SIGN  UP", 18.sp, Colors.white,
-                            bold: true),
+                      // width: AppSizes.dynamicWidth(context, 0.2),
+                      child: Row(
+                        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              //loginPopUp(context);
+                            },
+                            child: Container(
+                              alignment: Alignment.center,
+                              width: 100.w,
+                              height: 25.h,
+                              decoration: BoxDecoration(
+                                color: AppColors.blue,
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: text(
+                                  context, "LOG  IN", 18.sp, Colors.white,
+                                  bold: true),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Container(
+                            alignment: Alignment.center,
+                            width: 2,
+                            height: 25.h,
+                            decoration: BoxDecoration(
+                              color: AppColors.green,
+                              borderRadius: BorderRadius.circular(2),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          InkWell(
+                            onTap: () {
+                              //signUpPopUp(context);
+                            },
+                            child: Container(
+                              alignment: Alignment.center,
+                              width: 100.w,
+                              height: 25.h,
+                              decoration: BoxDecoration(
+                                color: AppColors.green,
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: text(
+                                  context, "SIGN  UP", 18.sp, Colors.white,
+                                  bold: true),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],
                 ),
-              ),
-            ],
-          ),
-          Container(
-            // color: Colors.amber,
-            child: Image.asset(
-              'assets/png/logo.png',
-              width: AppSizes.dynamicWidth(context, 0.3),
-              height: AppSizes.dynamicHeight(context, 0.3),
-            ),
-          ),
-          Container(
-            width: AppSizes.dynamicWidth(context, 1),
-            height: AppSizes.dynamicHeight(context, 0.6),
-            // decoration: BoxDecoration(
-            //   // color: Colors.amber,
-            //   image: DecorationImage(
-            //     image: AssetImage("assets/png/c1.png"),
-            //     fit: BoxFit.fill,
-            //   ),
-            // ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                InkWell(
-                  onTap: () {
-                    AppRoutes.push(context, StudentPhase1());
-                  },
-                  child: Container(
-                    alignment: Alignment.center,
-                    width: 350.w,
-                    height: 70.h,
-                    decoration: BoxDecoration(
-                      color: AppColors.customWhite,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Image.asset(
-                          'assets/png/Group 1026.png',
-                          width: 50.w,
-                          height: 50.h,
-                        ),
-                        text(context, "Student", 24.sp, Colors.black),
-                      ],
-                    ),
+                Container(
+                  // color: Colors.amber,
+                  child: Image.asset(
+                    'assets/png/logo.png',
+                    width: AppSizes.dynamicWidth(context, 0.3),
+                    height: AppSizes.dynamicHeight(context, 0.3),
                   ),
                 ),
-                InkWell(
-                  onTap: () {
-                    AppRoutes.push(context, TeacherSideMenu());
-                  },
-                  child: Container(
-                    alignment: Alignment.center,
-                    width: 350.w,
-                    height: 70.h,
-                    decoration: BoxDecoration(
-                      color: AppColors.customWhite,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Image.asset(
-                          'assets/png/Group 528.png',
-                          width: 50.w,
-                          height: 50.h,
+                Container(
+                  width: AppSizes.dynamicWidth(context, 1),
+                  height: AppSizes.dynamicHeight(context, 0.6),
+                  // decoration: BoxDecoration(
+                  //   // color: Colors.amber,
+                  //   image: DecorationImage(
+                  //     image: AssetImage("assets/png/c1.png"),
+                  //     fit: BoxFit.fill,
+                  //   ),
+                  // ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          //AppRoutes.push(context, StudentPhase1());
+                        },
+                        child: Container(
+                          alignment: Alignment.center,
+                          width: 350.w,
+                          height: 70.h,
+                          decoration: BoxDecoration(
+                            color: AppColors.customWhite,
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Image.asset(
+                                'assets/png/Group 1026.png',
+                                width: 50.w,
+                                height: 50.h,
+                              ),
+                              text(context, "Student", 24.sp, Colors.black),
+                            ],
+                          ),
                         ),
-                        text(context, "Teacher", 24.sp, Colors.black),
-                      ],
-                    ),
-                  ),
-                ),
-                InkWell(
-                  onTap: () {
-                    AppRoutes.push(context, AdminSideMenuMain());
-                  },
-                  child: Container(
-                    alignment: Alignment.center,
-                    width: 350.w,
-                    height: 70.h,
-                    decoration: BoxDecoration(
-                      color: AppColors.customWhite,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Image.asset(
-                          'assets/png/Group 528.png',
-                          width: 50.w,
-                          height: 50.h,
+                      ),
+                      InkWell(
+                        onTap: () {
+                          //AppRoutes.push(context, TeacherSideMenu());
+                        },
+                        child: Container(
+                          alignment: Alignment.center,
+                          width: 350.w,
+                          height: 70.h,
+                          decoration: BoxDecoration(
+                            color: AppColors.customWhite,
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Image.asset(
+                                'assets/png/Group 528.png',
+                                width: 50.w,
+                                height: 50.h,
+                              ),
+                              text(context, "Teacher", 24.sp, Colors.black),
+                            ],
+                          ),
                         ),
-                        text(context, "Admin", 24.sp, Colors.black),
-                      ],
-                    ),
+                      ),
+                      InkWell(
+                        onTap: () {
+                          //AppRoutes.push(context, AdminSideMenuMain());
+                        },
+                        child: Container(
+                          alignment: Alignment.center,
+                          width: 350.w,
+                          height: 70.h,
+                          decoration: BoxDecoration(
+                            color: AppColors.customWhite,
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Image.asset(
+                                'assets/png/Group 528.png',
+                                width: 50.w,
+                                height: 50.h,
+                              ),
+                              text(context, "Admin", 24.sp, Colors.black),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
             ),
-          ),
-        ],
-      ),
-   
-        ],
-      ) );
+          ],
+        ));
   }
 }

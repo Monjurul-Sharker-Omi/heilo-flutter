@@ -1,10 +1,10 @@
 // ignore_for_file: sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
-import 'package:heilo/screens/authentication/Intro/intro_web.dart';
-import 'package:heilo/screens/authentication/student_phase1/student_phase1_mobile.dart';
-import 'package:heilo/screens/authentication/student_phase1/student_phase1_web.dart';
-import 'package:heilo/utils/dynamic_sizes.dart';
+import 'package:heilo_flutter/src/screens/student/level_select/level_select_mobile.dart';
+import 'package:heilo_flutter/src/screens/student/level_select/level_select_web.dart';
+
+import 'package:heilo_flutter/src/utils/dynamic_sizes.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 class LevelSelect extends StatelessWidget {
@@ -18,9 +18,9 @@ class LevelSelect extends StatelessWidget {
         width: AppSizes.dynamicWidth(context, 1),
         height: AppSizes.dynamicHeight(context, 1),
         child: ScreenTypeLayout(
-          mobile: StudentPhase1Mobile(),
-          tablet: StudentPhase1Web(),
-          desktop: StudentPhase1Web(),
+          mobile: LevelSelectMobile(),
+          tablet: LevelSelctWeb(),
+          desktop: LevelSelctWeb(),
         ),
       ),
     );

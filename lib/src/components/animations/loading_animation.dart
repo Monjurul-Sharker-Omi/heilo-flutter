@@ -22,7 +22,8 @@ class _LoaderState extends State<Loader> with SingleTickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    animationController = AnimationController(vsync: this, duration: const Duration(seconds: 3));
+    animationController =
+        AnimationController(vsync: this, duration: const Duration(seconds: 3));
 
     rotationAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(
@@ -45,9 +46,11 @@ class _LoaderState extends State<Loader> with SingleTickerProviderStateMixin {
 
     animationController.addListener(() {
       setState(() {
-        if (animationController.value >= 0.75 && animationController.value <= 1.0) {
+        if (animationController.value >= 0.75 &&
+            animationController.value <= 1.0) {
           radius = radiusInAnimation.value * initialRadius;
-        } else if (animationController.value >= 0.0 && animationController.value <= 0.25) {
+        } else if (animationController.value >= 0.0 &&
+            animationController.value <= 0.25) {
           radius = radiusOutAnimation.value * initialRadius;
         }
       });
@@ -77,52 +80,59 @@ class _LoaderState extends State<Loader> with SingleTickerProviderStateMixin {
                 ),
               ),
               Transform.translate(
-                offset: Offset(radius * cos(2 * pi / 4), radius * sin(2 * pi / 4)),
+                offset:
+                    Offset(radius * cos(2 * pi / 4), radius * sin(2 * pi / 4)),
                 child: const Dot(
                   radius: 5,
-                  color: AppColors.complementaryColor,
+                  color: AppColors.blue,
                 ),
               ),
               Transform.translate(
-                offset: Offset(radius * cos(3 * pi / 4), radius * sin(3 * pi / 4)),
+                offset:
+                    Offset(radius * cos(3 * pi / 4), radius * sin(3 * pi / 4)),
                 child: const Dot(
                   radius: 5,
                   color: AppColors.primaryColor,
                 ),
               ),
               Transform.translate(
-                offset: Offset(radius * cos(4 * pi / 4), radius * sin(4 * pi / 4)),
+                offset:
+                    Offset(radius * cos(4 * pi / 4), radius * sin(4 * pi / 4)),
                 child: const Dot(
                   radius: 5,
-                  color: AppColors.complementaryColor,
+                  color: AppColors.blue,
                 ),
               ),
               Transform.translate(
-                offset: Offset(radius * cos(5 * pi / 4), radius * sin(5 * pi / 4)),
+                offset:
+                    Offset(radius * cos(5 * pi / 4), radius * sin(5 * pi / 4)),
                 child: const Dot(
                   radius: 5,
                   color: AppColors.primaryColor,
                 ),
               ),
               Transform.translate(
-                offset: Offset(radius * cos(6 * pi / 4), radius * sin(6 * pi / 4)),
+                offset:
+                    Offset(radius * cos(6 * pi / 4), radius * sin(6 * pi / 4)),
                 child: const Dot(
                   radius: 5,
-                  color: AppColors.complementaryColor,
+                  color: AppColors.blue,
                 ),
               ),
               Transform.translate(
-                offset: Offset(radius * cos(7 * pi / 4), radius * sin(7 * pi / 4)),
+                offset:
+                    Offset(radius * cos(7 * pi / 4), radius * sin(7 * pi / 4)),
                 child: const Dot(
                   radius: 5,
                   color: AppColors.primaryColor,
                 ),
               ),
               Transform.translate(
-                offset: Offset(radius * cos(8 * pi / 4), radius * sin(8 * pi / 4)),
+                offset:
+                    Offset(radius * cos(8 * pi / 4), radius * sin(8 * pi / 4)),
                 child: const Dot(
                   radius: 5,
-                  color: AppColors.complementaryColor,
+                  color: AppColors.blue,
                 ),
               ),
             ],
@@ -142,7 +152,8 @@ class _LoaderState extends State<Loader> with SingleTickerProviderStateMixin {
 class Dot extends StatelessWidget {
   final double radius;
   final Color color;
-  const Dot({Key? key, required this.radius, required this.color}) : super(key: key);
+  const Dot({Key? key, required this.radius, required this.color})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

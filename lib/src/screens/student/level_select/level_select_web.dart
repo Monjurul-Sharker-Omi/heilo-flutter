@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:heilo/screens/authentication/Popups/auth_popUp.dart';
-import 'package:heilo/screens/authentication/student_phase2/student_phase2.dart';
-import 'package:heilo/utils/app_routes.dart';
-import 'package:heilo/utils/config.dart';
-import 'package:heilo/utils/dynamic_sizes.dart';
-import 'package:heilo/widgets/basic_widgets.dart';
-import 'package:heilo/widgets/text_widget.dart';
+import 'package:heilo_flutter/src/components/temp/basic_widgets.dart';
+import 'package:heilo_flutter/src/components/temp/text_widget.dart';
+import 'package:heilo_flutter/src/components/temp/waves.dart';
+import 'package:heilo_flutter/src/utils/color_const.dart';
+import 'package:heilo_flutter/src/utils/dynamic_sizes.dart';
 import 'package:wave/config.dart';
 import 'package:wave/wave.dart';
-
-import '../waves.dart';
 
 class LevelSelctWeb extends StatefulWidget {
   const LevelSelctWeb({Key? key}) : super(key: key);
@@ -60,7 +56,7 @@ class _StudentPhase1WebState extends State<LevelSelctWeb> {
                   children: [
                     InkWell(
                       onTap: () {
-                        loginPopUp(context);
+                        //loginPopUp(context);
                       },
                       child: Container(
                         alignment: Alignment.center,
@@ -91,7 +87,7 @@ class _StudentPhase1WebState extends State<LevelSelctWeb> {
                     ),
                     InkWell(
                       onTap: () {
-                        signUpPopUp(context);
+                        //signUpPopUp(context);
                       },
                       child: Container(
                         alignment: Alignment.center,
@@ -138,7 +134,7 @@ class _StudentPhase1WebState extends State<LevelSelctWeb> {
                     children: [
                       InkWell(
                           onTap: () {
-                            AppRoutes.push(context, StudentPhase2());
+                            //AppRoutes.push(context, StudentPhase2());
                           },
                           child: TextBtn(title: "ADMISSION")),
                     ],
