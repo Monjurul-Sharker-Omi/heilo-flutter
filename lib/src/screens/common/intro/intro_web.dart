@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:heilo_flutter/src/components/temp/text_widget.dart';
 import 'package:heilo_flutter/src/utils/color_const.dart';
 import 'package:heilo_flutter/src/utils/dynamic_sizes.dart';
