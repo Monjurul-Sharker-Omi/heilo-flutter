@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:heilo_flutter/src/components/temp/text_widget.dart';
+import 'package:heilo_flutter/src/router/routes.dart';
 import 'package:heilo_flutter/src/utils/color_const.dart';
 import 'package:heilo_flutter/src/utils/dynamic_sizes.dart';
 
@@ -170,19 +171,12 @@ class _IntroWebState extends State<IntroWeb> {
                 Container(
                   width: AppSizes.dynamicWidth(context, 1),
                   height: AppSizes.dynamicHeight(context, 0.6),
-                  // decoration: BoxDecoration(
-                  //   // color: Colors.amber,
-                  //   image: DecorationImage(
-                  //     image: AssetImage("assets/png/c1.png"),
-                  //     fit: BoxFit.fill,
-                  //   ),
-                  // ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       InkWell(
                         onTap: () {
-                          //AppRoutes.push(context, StudentPhase1());
+                          Navigator.pushNamed(context, Routes.LEVEL_SELECT);
                         },
                         child: Container(
                           alignment: Alignment.center,
