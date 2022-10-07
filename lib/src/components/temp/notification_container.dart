@@ -1,0 +1,105 @@
+import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:heilo_flutter/src/components/notification_card.dart';
+import 'package:heilo_flutter/src/components/temp/text_widget.dart';
+import 'package:heilo_flutter/src/utils/color_const.dart';
+
+Widget notificationContainer(BuildContext context) {
+  return Container(
+    width: 526.w,
+    height: 680.h,
+    decoration: BoxDecoration(
+      color: AppColors.customGrey,
+      borderRadius: BorderRadius.circular(30.r),
+    ),
+    padding: EdgeInsets.symmetric(
+      vertical: 16.h,
+      // horizontal: 25.w,
+    ),
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Container(
+          padding: EdgeInsets.symmetric(
+            // vertical: 16.h,
+            horizontal: 25.w,
+          ),
+          child: text(
+            context,
+            "Notifications",
+            18.sp,
+            Color(0xff3DDEA5),
+            bold: true,
+          ),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+              width: 460.w,
+              height: 620.h,
+              child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: 4,
+                itemBuilder: (context, i) {
+                  return notificationCardforall(context);
+                },
+              ),
+            ),
+          ],
+        ),
+      ],
+    ),
+  );
+}
+
+Widget dashBoardnotificationContainer(BuildContext context) {
+  return Container(
+    width: 526.w,
+    height: 480.h,
+    decoration: BoxDecoration(
+      color: AppColors.customGrey,
+      borderRadius: BorderRadius.circular(30.r),
+    ),
+    // padding: EdgeInsets.symmetric(
+    //   vertical: 16.h,
+    //   // horizontal: 25.w,
+    // ),
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Container(
+          padding: EdgeInsets.symmetric(
+            // vertical: 16.h,
+            horizontal: 25.w,
+          ),
+          child: text(
+            context,
+            "Notifications",
+            18.sp,
+            Color(0xff3DDEA5),
+            bold: true,
+          ),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+              width: 460.w,
+              height: 450.h,
+              child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: 2,
+                itemBuilder: (context, i) {
+                  return notificationCardforall(context);
+                },
+              ),
+            ),
+          ],
+        ),
+      ],
+    ),
+  );
+}

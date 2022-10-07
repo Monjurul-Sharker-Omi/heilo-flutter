@@ -6,4 +6,5 @@ class Routes {
   //student
   static String LEVEL_SELECT = "/level-selelct";
   static String SELECT_SERVICES = "/select-services";
+  static String ON_DEMAND = "/on-demand";
 }
