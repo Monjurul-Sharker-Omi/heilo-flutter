@@ -52,302 +52,308 @@ class _OnDemandWebState extends State<OnDemandWeb> {
   double value = 60;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: AppSizes.dynamicWidth(context, 1),
-      height: AppSizes.dynamicHeight(context, 1),
-      decoration: BoxDecoration(
-        // color: Colors.amber,
-        color: AppColors.customWhite,
-        borderRadius: BorderRadius.circular(30.r),
-      ),
-      padding: EdgeInsets.all(AppSizes.dynamicWidth(context, 0.02)),
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            // AppSizes.heightBox(context, .02),
-            topIconAvatar(context),
-            Container(
-              // color: Colors.yellow,
-              padding: EdgeInsets.only(left: 0.w),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Column(
-                    children: [
-                      Container(
-                        width: 502.w,
-                        height: 65.h,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(40),
-                            border:
-                                Border.all(width: 2, color: Color(0xffE4E4E4))),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            SizedBox(
-                              width: 20.w,
-                            ),
-                            DropdownButton(
-                              // Initial Value
-                              value: dropdownvalue,
-                              underline: Container(color: Colors.transparent),
-                              // Down Arrow Icon
-                              icon: const Icon(Icons.keyboard_arrow_down),
-                              // Array list of items
-                              items: items.map((String items) {
-                                return DropdownMenuItem(
-                                  value: items,
-                                  child: Text(items),
-                                );
-                              }).toList(),
-                              // After selecting the desired option,it will
-                              // change button value to selected value
-                              onChanged: (String? newValue) {
-                                setState(() {
-                                  dropdownvalue = newValue!;
-                                });
-                              },
-                            ),
-                            SizedBox(
-                              width: 20.w,
-                            ),
-                            DropdownButton(
-                              // Initial Value
-                              value: dropdownvalue1,
-                              underline: Container(color: Colors.transparent),
-                              // Down Arrow Icon
-                              icon: const Icon(Icons.keyboard_arrow_down),
-                              // Array list of items
-                              items: items1.map((String items) {
-                                return DropdownMenuItem(
-                                  value: items,
-                                  child: Text(items),
-                                );
-                              }).toList(),
-                              // After selecting the desired option,it will
-                              // change button value to selected value
-                              onChanged: (String? newValue) {
-                                setState(() {
-                                  dropdownvalue1 = newValue!;
-                                });
-                              },
-                            ),
-                            SizedBox(
-                              width: 20.w,
-                            ),
-                            Container(
-                                height: 65.h,
-                                width: 182.w,
-                                decoration: BoxDecoration(
-                                  color: Color(0xff01B489),
-                                  borderRadius: BorderRadius.only(
-                                      topRight: Radius.circular(40.0),
-                                      bottomRight: Radius.circular(40.0),
-                                      // topLeft: Radius.circular(40.0),
-                                      bottomLeft: Radius.circular(64.0)),
-                                ),
-                                child: Align(
-                                    alignment: Alignment.center,
-                                    child: text(context, "SEARCH", 25.sp,
-                                        AppColors.customWhite,
-                                        bold: false)))
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: 15.h,
-                      ),
-                      Container(
-                        width: 771.w,
-                        // color: Colors.amber,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            SizedBox(
-                              width: 180.w,
-                              height: 10.h,
-                              child: Slider(
-                                  value: _value.toDouble(),
-                                  min: 1.0,
-                                  max: 20.0,
-                                  divisions: 10,
-                                  activeColor: AppColors.primaryColor,
-                                  inactiveColor: Colors.grey,
-                                  label: 'Set Price value',
-                                  onChanged: (double newValue) {
-                                    setState(() {
-                                      _value = newValue.round();
-                                    });
-                                  },
-                                  semanticFormatterCallback: (double newValue) {
-                                    return '${newValue.round()} dollars';
-                                  }),
-                            ),
-                            // StatefulBuilder(
-                            //   builder:
-                            //       (BuildContext context, StateSetter setStat) {
-                            //     return SizedBox(
-                            //       width: 180.w,
-                            //       height: 10.h,
-                            //       child: Slider(
-                            //         activeColor: AppColors.primaryColor,
-                            //         inactiveColor: Colors.grey,
-                            //         min: 0,
-                            //         max: 100,
-                            //         value: value,
-                            //         onChanged: (value) {
-                            //           setState(() {
-
-                            //             value = value;
-                            //           });
-                            //         },
-                            //       ),
-
-                            //     );
-                            //   },
-                            // ),
-                            Row(
-                              children: [
-                                Radio(
-                                  activeColor: AppColors.primaryColor,
-                                  value: 0,
-                                  groupValue: _radioValue,
-                                  onChanged: (value) {
-                                    setState(() {
-                                      _radioValue = value as int;
-                                    });
-                                  },
-                                ),
-                                Text(
-                                  'Male',
-                                  style: TextStyle(fontSize: 16.sp),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Radio(
-                                  activeColor: AppColors.primaryColor,
-                                  value: 1,
-                                  groupValue: _radioValue,
-                                  onChanged: (value) {
-                                    setState(() {
-                                      _radioValue = value as int;
-                                    });
-                                  },
-                                ),
-                                Text(
-                                  'FeMale',
-                                  style: TextStyle(
-                                    fontSize: 16.sp,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Container(
-                              height: 33.h,
-                              padding: EdgeInsets.symmetric(
-                                horizontal: 30.w,
+    return Scaffold(
+      body: Container(
+        width: AppSizes.dynamicWidth(context, 1),
+        height: AppSizes.dynamicHeight(context, 1),
+        decoration: BoxDecoration(
+          // color: Colors.amber,
+          color: AppColors.customWhite,
+          borderRadius: BorderRadius.circular(30.r),
+        ),
+        padding: EdgeInsets.all(AppSizes.dynamicWidth(context, 0.02)),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              // AppSizes.heightBox(context, .02),
+              topIconAvatar(context),
+              Container(
+                // color: Colors.yellow,
+                padding: EdgeInsets.only(left: 0.w),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Column(
+                      children: [
+                        Container(
+                          width: 502.w,
+                          height: 65.h,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(40),
+                              border: Border.all(
+                                  width: 2, color: Color(0xffE4E4E4))),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              SizedBox(
+                                width: 20.w,
                               ),
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                    width: 1, color: AppColors.lightgreyborder),
-                                borderRadius: BorderRadius.circular(16.r),
-                              ),
-                              child: DropdownButton(
+                              DropdownButton(
                                 // Initial Value
-                                value: dropdownvalueavail,
+                                value: dropdownvalue,
                                 underline: Container(color: Colors.transparent),
                                 // Down Arrow Icon
                                 icon: const Icon(Icons.keyboard_arrow_down),
                                 // Array list of items
-                                items: availitem.map((String items) {
+                                items: items.map((String items) {
                                   return DropdownMenuItem(
                                     value: items,
-                                    child: Text(
-                                      items,
-                                      style: TextStyle(
-                                        fontSize: 16.sp,
-                                      ),
-                                    ),
+                                    child: Text(items),
                                   );
                                 }).toList(),
                                 // After selecting the desired option,it will
                                 // change button value to selected value
                                 onChanged: (String? newValue) {
                                   setState(() {
-                                    dropdownvalueavail = newValue!;
+                                    dropdownvalue = newValue!;
                                   });
                                 },
                               ),
-                            ),
-                            Container(
-                              width: 170.w,
-                              height: 46.h,
-                              padding: EdgeInsets.only(
-                                left: 10.w,
+                              SizedBox(
+                                width: 20.w,
                               ),
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                    width: 1, color: AppColors.lightgreyborder),
-                                borderRadius: BorderRadius.circular(10),
+                              DropdownButton(
+                                // Initial Value
+                                value: dropdownvalue1,
+                                underline: Container(color: Colors.transparent),
+                                // Down Arrow Icon
+                                icon: const Icon(Icons.keyboard_arrow_down),
+                                // Array list of items
+                                items: items1.map((String items) {
+                                  return DropdownMenuItem(
+                                    value: items,
+                                    child: Text(items),
+                                  );
+                                }).toList(),
+                                // After selecting the desired option,it will
+                                // change button value to selected value
+                                onChanged: (String? newValue) {
+                                  setState(() {
+                                    dropdownvalue1 = newValue!;
+                                  });
+                                },
                               ),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Icon(
-                                    Icons.search,
-                                    size: 17,
+                              SizedBox(
+                                width: 20.w,
+                              ),
+                              Container(
+                                  height: 65.h,
+                                  width: 182.w,
+                                  decoration: BoxDecoration(
+                                    color: Color(0xff01B489),
+                                    borderRadius: BorderRadius.only(
+                                        topRight: Radius.circular(40.0),
+                                        bottomRight: Radius.circular(40.0),
+                                        // topLeft: Radius.circular(40.0),
+                                        bottomLeft: Radius.circular(64.0)),
                                   ),
-                                  Container(
-                                    alignment: Alignment.topCenter,
-                                    width: 128.w,
-                                    padding: EdgeInsets.only(
-                                      left: 10.w,
-                                      bottom: 15.h,
-                                    ),
-                                    child: TextField(
-                                      decoration: InputDecoration(
-                                          border: InputBorder.none,
-                                          hintText: 'Search By ID',
-                                          hintStyle: TextStyle(
-                                            fontSize: 16.sp,
-                                            color: AppColors.greyText,
-                                          )),
+                                  child: Align(
+                                      alignment: Alignment.center,
+                                      child: text(context, "SEARCH", 25.sp,
+                                          AppColors.customWhite,
+                                          bold: false)))
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 15.h,
+                        ),
+                        Container(
+                          width: 771.w,
+                          // color: Colors.amber,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              SizedBox(
+                                width: 180.w,
+                                height: 10.h,
+                                child: Slider(
+                                    value: _value.toDouble(),
+                                    min: 1.0,
+                                    max: 20.0,
+                                    divisions: 10,
+                                    activeColor: AppColors.primaryColor,
+                                    inactiveColor: Colors.grey,
+                                    label: 'Set Price value',
+                                    onChanged: (double newValue) {
+                                      setState(() {
+                                        _value = newValue.round();
+                                      });
+                                    },
+                                    semanticFormatterCallback:
+                                        (double newValue) {
+                                      return '${newValue.round()} dollars';
+                                    }),
+                              ),
+                              // StatefulBuilder(
+                              //   builder:
+                              //       (BuildContext context, StateSetter setStat) {
+                              //     return SizedBox(
+                              //       width: 180.w,
+                              //       height: 10.h,
+                              //       child: Slider(
+                              //         activeColor: AppColors.primaryColor,
+                              //         inactiveColor: Colors.grey,
+                              //         min: 0,
+                              //         max: 100,
+                              //         value: value,
+                              //         onChanged: (value) {
+                              //           setState(() {
+
+                              //             value = value;
+                              //           });
+                              //         },
+                              //       ),
+
+                              //     );
+                              //   },
+                              // ),
+                              Row(
+                                children: [
+                                  Radio(
+                                    activeColor: AppColors.primaryColor,
+                                    value: 0,
+                                    groupValue: _radioValue,
+                                    onChanged: (value) {
+                                      setState(() {
+                                        _radioValue = value as int;
+                                      });
+                                    },
+                                  ),
+                                  Text(
+                                    'Male',
+                                    style: TextStyle(fontSize: 16.sp),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Radio(
+                                    activeColor: AppColors.primaryColor,
+                                    value: 1,
+                                    groupValue: _radioValue,
+                                    onChanged: (value) {
+                                      setState(() {
+                                        _radioValue = value as int;
+                                      });
+                                    },
+                                  ),
+                                  Text(
+                                    'FeMale',
+                                    style: TextStyle(
+                                      fontSize: 16.sp,
                                     ),
                                   ),
                                 ],
                               ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: 30.h,
-                      ),
-                      Container(
-                        // color: Colors.amber,
-                        width: 760.w,
-                        height: 570.h,
-                        child: ListView.builder(
-                          itemCount: 6,
-                          itemBuilder: (context, i) {
-                            return Container(
-                                padding: EdgeInsets.only(
-                                  right: 20.w,
+                              Container(
+                                height: 33.h,
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 30.w,
                                 ),
-                                child: profileCard(context));
-                          },
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                      width: 1,
+                                      color: AppColors.lightgreyborder),
+                                  borderRadius: BorderRadius.circular(16.r),
+                                ),
+                                child: DropdownButton(
+                                  // Initial Value
+                                  value: dropdownvalueavail,
+                                  underline:
+                                      Container(color: Colors.transparent),
+                                  // Down Arrow Icon
+                                  icon: const Icon(Icons.keyboard_arrow_down),
+                                  // Array list of items
+                                  items: availitem.map((String items) {
+                                    return DropdownMenuItem(
+                                      value: items,
+                                      child: Text(
+                                        items,
+                                        style: TextStyle(
+                                          fontSize: 16.sp,
+                                        ),
+                                      ),
+                                    );
+                                  }).toList(),
+                                  // After selecting the desired option,it will
+                                  // change button value to selected value
+                                  onChanged: (String? newValue) {
+                                    setState(() {
+                                      dropdownvalueavail = newValue!;
+                                    });
+                                  },
+                                ),
+                              ),
+                              Container(
+                                width: 170.w,
+                                height: 46.h,
+                                padding: EdgeInsets.only(
+                                  left: 10.w,
+                                ),
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                      width: 1,
+                                      color: AppColors.lightgreyborder),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Icon(
+                                      Icons.search,
+                                      size: 17,
+                                    ),
+                                    Container(
+                                      alignment: Alignment.topCenter,
+                                      width: 128.w,
+                                      padding: EdgeInsets.only(
+                                        left: 10.w,
+                                        bottom: 15.h,
+                                      ),
+                                      child: TextField(
+                                        decoration: InputDecoration(
+                                            border: InputBorder.none,
+                                            hintText: 'Search By ID',
+                                            hintStyle: TextStyle(
+                                              fontSize: 16.sp,
+                                              color: AppColors.greyText,
+                                            )),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                  notificationContainer(context),
-                ],
+                        SizedBox(
+                          height: 30.h,
+                        ),
+                        Container(
+                          // color: Colors.amber,
+                          width: 760.w,
+                          height: 570.h,
+                          child: ListView.builder(
+                            itemCount: 6,
+                            itemBuilder: (context, i) {
+                              return Container(
+                                  padding: EdgeInsets.only(
+                                    right: 20.w,
+                                  ),
+                                  child: profileCard(context));
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                    notificationContainer(context),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
