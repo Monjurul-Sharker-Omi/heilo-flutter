@@ -2,12 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:heilo_flutter/src/components/temp/text_widget.dart';
 import 'package:heilo_flutter/src/router/routes.dart';
 import 'package:heilo_flutter/src/utils/color_const.dart';
 import 'package:heilo_flutter/src/utils/dynamic_sizes.dart';
-
 import 'package:wave/config.dart';
 import 'package:wave/wave.dart';
 
@@ -31,8 +29,7 @@ class _IntroWebState extends State<IntroWeb> {
         elevation: 12.0,
         // margin: EdgeInsets.only(right: 16.0, left: 16.0, bottom: 16.0),
         clipBehavior: Clip.antiAlias,
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(16.0))),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(16.0))),
         child: WaveWidget(
           config: config,
           backgroundColor: backgroundColor,
@@ -118,9 +115,7 @@ class _IntroWebState extends State<IntroWeb> {
                                 color: AppColors.blue,
                                 borderRadius: BorderRadius.circular(20),
                               ),
-                              child: text(
-                                  context, "LOG  IN", 18.sp, Colors.white,
-                                  bold: true),
+                              child: text(context, "LOG  IN", 18.sp, Colors.white, bold: true),
                             ),
                           ),
                           SizedBox(
@@ -150,9 +145,7 @@ class _IntroWebState extends State<IntroWeb> {
                                 color: AppColors.green,
                                 borderRadius: BorderRadius.circular(20),
                               ),
-                              child: text(
-                                  context, "SIGN  UP", 18.sp, Colors.white,
-                                  bold: true),
+                              child: text(context, "SIGN  UP", 18.sp, Colors.white, bold: true),
                             ),
                           ),
                         ],

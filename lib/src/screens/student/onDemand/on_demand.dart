@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:heilo_flutter/src/components/temp/text_widget.dart';
 import 'package:heilo_flutter/src/utils/color_const.dart';
 import 'package:responsive_builder/responsive_builder.dart';
+
 import 'onDemand_web.dart';
 import 'on_demand_mobile.dart';
 
@@ -19,15 +20,10 @@ class OnDemand extends StatefulWidget {
 class _OnDemandState extends State<OnDemand> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // color: Colors.amber,
-      // width: AppSizes.dynamicWidth(context, 1),
-      // height: AppSizes.dynamicHeight(context, 1),
-      child: ScreenTypeLayout(
-        mobile: OnDemandMobile(),
-        tablet: OnDemandWeb(),
-        desktop: OnDemandWeb(),
-      ),
+    return ScreenTypeLayout(
+      mobile: OnDemandMobile(),
+      tablet: OnDemandWeb(),
+      desktop: OnDemandWeb(),
     );
   }
 }
@@ -87,8 +83,7 @@ Widget profileCard(context) {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(10.r),
               ),
-              child:
-                  Center(child: text(context, "450/hr", 18.sp, Colors.black)),
+              child: Center(child: text(context, "450/hr", 18.sp, Colors.black)),
             ),
             Container(
               height: 42.h,
@@ -97,8 +92,7 @@ Widget profileCard(context) {
                 color: AppColors.greenDark,
                 borderRadius: BorderRadius.circular(10.r),
               ),
-              child:
-                  Center(child: text(context, "Message", 18.sp, Colors.white)),
+              child: Center(child: text(context, "Message", 18.sp, Colors.white)),
             ),
           ],
         ),
