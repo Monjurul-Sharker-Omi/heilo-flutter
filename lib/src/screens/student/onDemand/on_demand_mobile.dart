@@ -112,9 +112,7 @@ class _OnDemandMobileState extends State<OnDemandMobile> {
                 ),
                 height: 55.h,
                 decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(40),
-                    border: Border.all(width: 2, color: Color(0xffE4E4E4))),
+                    color: Colors.white, borderRadius: BorderRadius.circular(40), border: Border.all(width: 2, color: Color(0xffE4E4E4))),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -182,11 +180,7 @@ class _OnDemandMobileState extends State<OnDemandMobile> {
                               // topLeft: Radius.circular(40.0),
                               bottomLeft: Radius.circular(64.0)),
                         ),
-                        child: Align(
-                            alignment: Alignment.center,
-                            child: text(
-                                context, "SEARCH", 85.sp, AppColors.customWhite,
-                                bold: false)))
+                        child: Align(alignment: Alignment.center, child: text(context, "SEARCH", 85.sp, AppColors.customWhite, bold: false)))
                   ],
                 ),
               ),
@@ -285,8 +279,7 @@ class _OnDemandMobileState extends State<OnDemandMobile> {
                     ),
                     height: 36.h,
                     decoration: BoxDecoration(
-                      border: Border.all(
-                          width: 1, color: AppColors.lightgreyborder),
+                      border: Border.all(width: 1, color: AppColors.lightGreybBorder),
                       borderRadius: BorderRadius.circular(80.r),
                     ),
                     child: DropdownButton(
@@ -328,8 +321,7 @@ class _OnDemandMobileState extends State<OnDemandMobile> {
                     ),
 
                     decoration: BoxDecoration(
-                      border: Border.all(
-                          width: 1, color: AppColors.lightgreyborder),
+                      border: Border.all(width: 1, color: AppColors.lightGreybBorder),
                       borderRadius: BorderRadius.circular(80.r),
                     ),
                     child: Row(
@@ -460,8 +452,7 @@ Widget profileCard(context) {
             width: AppSizes.dynamicWidth(context, 0.03),
           ),
           Padding(
-            padding:
-                EdgeInsets.only(top: AppSizes.dynamicHeight(context, 0.03)),
+            padding: EdgeInsets.only(top: AppSizes.dynamicHeight(context, 0.03)),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -475,9 +466,7 @@ Widget profileCard(context) {
                 ),
                 Wrap(
                   children: [
-                    text(context, "bangladesh University", 65.sp,
-                        AppColors.customBlack,
-                        maxLines: 1),
+                    text(context, "bangladesh University", 65.sp, AppColors.customBlack, maxLines: 1),
                   ],
                 ),
               ],
@@ -497,8 +486,7 @@ Widget profileCard(context) {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(75.r),
                 ),
-                child:
-                    Center(child: text(context, "450/hr", 65.sp, Colors.black)),
+                child: Center(child: text(context, "450/hr", 65.sp, Colors.black)),
               ),
               Container(
                 height: 25.h,
@@ -507,8 +495,7 @@ Widget profileCard(context) {
                   color: AppColors.greenDark,
                   borderRadius: BorderRadius.circular(75.r),
                 ),
-                child: Center(
-                    child: text(context, "Message", 65.sp, Colors.white)),
+                child: Center(child: text(context, "Message", 65.sp, Colors.white)),
               ),
             ],
           ),
@@ -570,8 +557,7 @@ notificationPopUp(BuildContext context) {
       context: context,
       builder: (BuildContext context) {
         return Dialog(
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(35.r)), //this right here
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(35.r)), //this right here
           child: Container(
             // width: 450.w,
             height: 700.h,

@@ -3,6 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:heilo_flutter/src/components/ProfileCard.dart';
 import 'package:heilo_flutter/src/components/temp/notification_container.dart';
 import 'package:heilo_flutter/src/components/temp/text_widget.dart';
 import 'package:heilo_flutter/src/components/temp/top_iconavatar.dart';
@@ -17,9 +18,9 @@ class OnDemandWeb extends StatefulWidget {
 }
 
 class _OnDemandWebState extends State<OnDemandWeb> {
-  String dropdownvalue = 'Subject';
-  String dropdownvalue1 = 'Topic';
-  String dropdownvalueavail = 'Availability';
+  String dropdownValue = 'Subject';
+  String dropdownValue1 = 'Topic';
+  String dropdownValueAvail = 'Availability';
   int _radioValue = 0;
 
   // List of items in our dropdown menu
@@ -79,10 +80,7 @@ class _OnDemandWebState extends State<OnDemandWeb> {
                           width: 502.w,
                           height: 65.h,
                           decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(40),
-                              border: Border.all(
-                                  width: 2, color: Color(0xffE4E4E4))),
+                              color: Colors.white, borderRadius: BorderRadius.circular(40), border: Border.all(width: 2, color: Color(0xffE4E4E4))),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -91,7 +89,7 @@ class _OnDemandWebState extends State<OnDemandWeb> {
                               ),
                               DropdownButton(
                                 // Initial Value
-                                value: dropdownvalue,
+                                value: dropdownValue,
                                 underline: Container(color: Colors.transparent),
                                 // Down Arrow Icon
                                 icon: const Icon(Icons.keyboard_arrow_down),
@@ -106,7 +104,7 @@ class _OnDemandWebState extends State<OnDemandWeb> {
                                 // change button value to selected value
                                 onChanged: (String? newValue) {
                                   setState(() {
-                                    dropdownvalue = newValue!;
+                                    dropdownValue = newValue!;
                                   });
                                 },
                               ),
@@ -115,7 +113,7 @@ class _OnDemandWebState extends State<OnDemandWeb> {
                               ),
                               DropdownButton(
                                 // Initial Value
-                                value: dropdownvalue1,
+                                value: dropdownValue1,
                                 underline: Container(color: Colors.transparent),
                                 // Down Arrow Icon
                                 icon: const Icon(Icons.keyboard_arrow_down),
@@ -130,7 +128,7 @@ class _OnDemandWebState extends State<OnDemandWeb> {
                                 // change button value to selected value
                                 onChanged: (String? newValue) {
                                   setState(() {
-                                    dropdownvalue1 = newValue!;
+                                    dropdownValue1 = newValue!;
                                   });
                                 },
                               ),
@@ -148,11 +146,8 @@ class _OnDemandWebState extends State<OnDemandWeb> {
                                         // topLeft: Radius.circular(40.0),
                                         bottomLeft: Radius.circular(64.0)),
                                   ),
-                                  child: Align(
-                                      alignment: Alignment.center,
-                                      child: text(context, "SEARCH", 25.sp,
-                                          AppColors.customWhite,
-                                          bold: false)))
+                                  child:
+                                      Align(alignment: Alignment.center, child: text(context, "SEARCH", 25.sp, AppColors.customWhite, bold: false)))
                             ],
                           ),
                         ),
@@ -181,34 +176,10 @@ class _OnDemandWebState extends State<OnDemandWeb> {
                                         _value = newValue.round();
                                       });
                                     },
-                                    semanticFormatterCallback:
-                                        (double newValue) {
+                                    semanticFormatterCallback: (double newValue) {
                                       return '${newValue.round()} dollars';
                                     }),
                               ),
-                              // StatefulBuilder(
-                              //   builder:
-                              //       (BuildContext context, StateSetter setStat) {
-                              //     return SizedBox(
-                              //       width: 180.w,
-                              //       height: 10.h,
-                              //       child: Slider(
-                              //         activeColor: AppColors.primaryColor,
-                              //         inactiveColor: Colors.grey,
-                              //         min: 0,
-                              //         max: 100,
-                              //         value: value,
-                              //         onChanged: (value) {
-                              //           setState(() {
-
-                              //             value = value;
-                              //           });
-                              //         },
-                              //       ),
-
-                              //     );
-                              //   },
-                              // ),
                               Row(
                                 children: [
                                   Radio(
@@ -253,16 +224,13 @@ class _OnDemandWebState extends State<OnDemandWeb> {
                                   horizontal: 30.w,
                                 ),
                                 decoration: BoxDecoration(
-                                  border: Border.all(
-                                      width: 1,
-                                      color: AppColors.lightgreyborder),
+                                  border: Border.all(width: 1, color: AppColors.lightGreybBorder),
                                   borderRadius: BorderRadius.circular(16.r),
                                 ),
                                 child: DropdownButton(
                                   // Initial Value
-                                  value: dropdownvalueavail,
-                                  underline:
-                                      Container(color: Colors.transparent),
+                                  value: dropdownValueAvail,
+                                  underline: Container(color: Colors.transparent),
                                   // Down Arrow Icon
                                   icon: const Icon(Icons.keyboard_arrow_down),
                                   // Array list of items
@@ -281,7 +249,7 @@ class _OnDemandWebState extends State<OnDemandWeb> {
                                   // change button value to selected value
                                   onChanged: (String? newValue) {
                                     setState(() {
-                                      dropdownvalueavail = newValue!;
+                                      dropdownValueAvail = newValue!;
                                     });
                                   },
                                 ),
@@ -293,9 +261,7 @@ class _OnDemandWebState extends State<OnDemandWeb> {
                                   left: 10.w,
                                 ),
                                 decoration: BoxDecoration(
-                                  border: Border.all(
-                                      width: 1,
-                                      color: AppColors.lightgreyborder),
+                                  border: Border.all(width: 1, color: AppColors.lightGreybBorder),
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 child: Row(
@@ -338,11 +304,13 @@ class _OnDemandWebState extends State<OnDemandWeb> {
                           child: ListView.builder(
                             itemCount: 6,
                             itemBuilder: (context, i) {
-                              return Container(
-                                  padding: EdgeInsets.only(
-                                    right: 20.w,
-                                  ),
-                                  child: profileCard(context));
+                              return ProfileCard(
+                                name: 'Sakib Abdullah',
+                                image: "assets/png/wp2398385 1.png",
+                                rating: '4.5',
+                                institute: "bangladesh University Of Professionals\nAccounting , Finance, English, ICT ",
+                                rate: "450",
+                              );
                             },
                           ),
                         ),
@@ -358,128 +326,6 @@ class _OnDemandWebState extends State<OnDemandWeb> {
       ),
     );
   }
-}
-
-Widget profileCard(context) {
-  return Container(
-    // width: 700.w,
-    height: 130.h,
-    decoration: BoxDecoration(
-      color: AppColors.customGrey,
-      borderRadius: BorderRadius.circular(10.r),
-    ),
-    padding: EdgeInsets.symmetric(
-      horizontal: 10.w,
-      vertical: 14.h,
-    ),
-    margin: EdgeInsets.only(bottom: 14.h),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Stack(
-              clipBehavior: Clip.none,
-              children: [
-                CircleAvatar(
-                  radius: 46.r,
-                  backgroundImage: const AssetImage(
-                    "assets/png/wp2398385 1.png",
-                  ),
-                ),
-                Positioned(
-                  top: -5,
-                  right: -40,
-                  child: Container(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 10,
-                      vertical: 3,
-                    ),
-                    decoration: BoxDecoration(
-                      color: Color(0xffC4C4C4).withOpacity(0.5),
-                      borderRadius: BorderRadius.circular(50),
-                    ),
-                    child: Row(
-                      children: [
-                        Image.asset('assets/png/star.png'),
-                        text(
-                          context,
-                          "4.5",
-                          15,
-                          Colors.black,
-                          bold: true,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            text(
-              context,
-              "SAKIB ABDULLAH",
-              20.sp,
-              AppColors.customBlack,
-              bold: true,
-            ),
-            text(
-              context,
-              "bangladesh University Of Professionals\nAccounting , Finance, English, ICT ",
-              14.sp,
-              AppColors.customBlack,
-            ),
-          ],
-        ),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Container(
-              height: 42.h,
-              width: 146.w,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(10.r),
-              ),
-              child:
-                  Center(child: text(context, "450/hr", 18.sp, Colors.black)),
-            ),
-            Container(
-              height: 42.h,
-              width: 146.w,
-              decoration: BoxDecoration(
-                color: AppColors.greenDark,
-                borderRadius: BorderRadius.circular(10.r),
-              ),
-              child:
-                  Center(child: text(context, "Message", 18.sp, Colors.white)),
-            ),
-            // coloredButton(
-            //   context,
-            //   "450/Hr",
-            //   AppColors.customWhite,
-            //   width: 146.w,
-            //   height: 42.h,
-            // ),
-            // coloredButton(
-            //   context,
-            //   "Message",
-            //   AppColors.greenDark,
-            //   width: 146.w,
-            //   height: 42.h,
-            //   fontColor: true,
-            // ),
-          ],
-        ),
-      ],
-    ),
-  );
 }
 
 Widget notificationCardforall(context) {
