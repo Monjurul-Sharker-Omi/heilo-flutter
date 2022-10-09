@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:heilo_flutter/src/components/temp/basic_widgets.dart';
 import 'package:heilo_flutter/src/components/temp/text_widget.dart';
 import 'package:heilo_flutter/src/components/temp/waves.dart';
+import 'package:heilo_flutter/src/router/routes.dart';
 import 'package:heilo_flutter/src/utils/color_const.dart';
 import 'package:heilo_flutter/src/utils/dynamic_sizes.dart';
 import 'package:wave/config.dart';
@@ -120,16 +121,19 @@ class SelectServicesMobile extends StatelessWidget {
                         InkWell(
                             onTap: () {
                               //AppRoutes.push(context, StudentSideMenu());
+                              Navigator.pushNamed(context, Routes.ON_DEMAND);
                             },
                             child: TextBtn(title: "SSC")),
                         InkWell(
                             onTap: () {
                               //AppRoutes.push(context, StudentSideMenu());
+                              Navigator.pushNamed(context, Routes.ON_DEMAND);
                             },
                             child: TextBtn(title: "HSC")),
                         InkWell(
                             onTap: () {
                               //AppRoutes.push(context, StudentSideMenu());
+                              Navigator.pushNamed(context, Routes.ON_DEMAND);
                             },
                             child: TextBtn(title: "HSC")),
                         // SizedBox(

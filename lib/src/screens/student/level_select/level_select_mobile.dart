@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:heilo_flutter/src/components/temp/basic_widgets.dart';
 import 'package:heilo_flutter/src/components/temp/text_widget.dart';
+import 'package:heilo_flutter/src/router/routes.dart';
 import 'package:heilo_flutter/src/utils/color_const.dart';
 import 'package:heilo_flutter/src/utils/dynamic_sizes.dart';
 import 'package:wave/config.dart';
@@ -167,13 +168,35 @@ class _StudentPhase1MobileState extends State<LevelSelectMobile> {
                   child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        TextBtn(title: "SSC"),
-                        TextBtn(title: "HSC"),
-                        TextBtn(title: "A LEVELS"),
-                        TextBtn(title: "O LEVELS"),
+                        InkWell(
+                            onTap: () {
+                              Navigator.pushNamed(
+                                  context, Routes.SELECT_SERVICES);
+                            },
+                            child: TextBtn(title: "SSC")),
+                        InkWell(
+                            onTap: () {
+                              Navigator.pushNamed(
+                                  context, Routes.SELECT_SERVICES);
+                            },
+                            child: TextBtn(title: "HSC")),
+                        InkWell(
+                            onTap: () {
+                              Navigator.pushNamed(
+                                  context, Routes.SELECT_SERVICES);
+                            },
+                            child: TextBtn(title: "A LEVELS")),
+                        InkWell(
+                            onTap: () {
+                              Navigator.pushNamed(
+                                  context, Routes.SELECT_SERVICES);
+                            },
+                            child: TextBtn(title: "O LEVELS")),
                         InkWell(
                             onTap: () {
                               //AppRoutes.push(context, StudentPhase2());
+                              Navigator.pushNamed(
+                                  context, Routes.SELECT_SERVICES);
                             },
                             child: TextBtn(title: "ADMISSION")),
                       ]),
