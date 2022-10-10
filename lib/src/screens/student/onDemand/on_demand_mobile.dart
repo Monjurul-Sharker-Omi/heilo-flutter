@@ -6,6 +6,7 @@ import 'package:heilo_flutter/src/components/temp/student_drawer.dart';
 import 'package:heilo_flutter/src/components/temp/text_widget.dart';
 import 'package:heilo_flutter/src/utils/color_const.dart';
 import 'package:heilo_flutter/src/utils/dynamic_sizes.dart';
+import 'package:heilo_flutter/src/components/ProfileCard.dart';
 
 final GlobalKey<ScaffoldState> studentScafoldKey = GlobalKey();
 
@@ -112,7 +113,9 @@ class _OnDemandMobileState extends State<OnDemandMobile> {
                 ),
                 height: 55.h,
                 decoration: BoxDecoration(
-                    color: Colors.white, borderRadius: BorderRadius.circular(40), border: Border.all(width: 2, color: Color(0xffE4E4E4))),
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(40),
+                    border: Border.all(width: 2, color: Color(0xffE4E4E4))),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -180,7 +183,11 @@ class _OnDemandMobileState extends State<OnDemandMobile> {
                               // topLeft: Radius.circular(40.0),
                               bottomLeft: Radius.circular(64.0)),
                         ),
-                        child: Align(alignment: Alignment.center, child: text(context, "SEARCH", 85.sp, AppColors.customWhite, bold: false)))
+                        child: Align(
+                            alignment: Alignment.center,
+                            child: text(
+                                context, "SEARCH", 85.sp, AppColors.customWhite,
+                                bold: false)))
                   ],
                 ),
               ),
@@ -279,7 +286,8 @@ class _OnDemandMobileState extends State<OnDemandMobile> {
                     ),
                     height: 36.h,
                     decoration: BoxDecoration(
-                      border: Border.all(width: 1, color: AppColors.lightGreybBorder),
+                      border: Border.all(
+                          width: 1, color: AppColors.lightGreybBorder),
                       borderRadius: BorderRadius.circular(80.r),
                     ),
                     child: DropdownButton(
@@ -321,7 +329,8 @@ class _OnDemandMobileState extends State<OnDemandMobile> {
                     ),
 
                     decoration: BoxDecoration(
-                      border: Border.all(width: 1, color: AppColors.lightGreybBorder),
+                      border: Border.all(
+                          width: 1, color: AppColors.lightGreybBorder),
                       borderRadius: BorderRadius.circular(80.r),
                     ),
                     child: Row(
@@ -368,7 +377,15 @@ class _OnDemandMobileState extends State<OnDemandMobile> {
                   child: ListView.builder(
                     itemCount: 10,
                     itemBuilder: (context, i) {
-                      return profileCard(context);
+                      return ProfileCard(
+                        name: 'Sakib Abdullah',
+                        image: "assets/png/wp2398385 1.png",
+                        rating: '4.5',
+                        institute:
+                            "bangladesh University Of Professionals\nAccounting , Finance, English, ICT ",
+                        rate: "450",
+                        mobileView: true,
+                      );
                     },
                   ),
                 ),
@@ -379,134 +396,134 @@ class _OnDemandMobileState extends State<OnDemandMobile> {
   }
 }
 
-Widget profileCard(context) {
-  return Flexible(
-    child: Container(
-      // width: 700.w,
-      height: 90.h,
-      decoration: BoxDecoration(
-        color: AppColors.customGrey,
-        borderRadius: BorderRadius.circular(45.r),
-      ),
-      // padding: EdgeInsets.symmetric(
-      //   horizontal: 54.w,
-      //   vertical: 5.h,
-      // ),
-      margin: EdgeInsets.only(bottom: 14.h),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          SizedBox(
-            width: 20.w,
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Stack(
-                //overflow: Overflow.visible,
-                clipBehavior: Clip.none,
-                children: [
-                  CircleAvatar(
-                    radius: 130.r,
-                    backgroundImage: const AssetImage(
-                      "assets/png/wp2398385 1.png",
-                    ),
-                  ),
-                  Positioned(
-                    top: -5,
-                    right: -40,
-                    child: Container(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 7,
-                        vertical: 3,
-                      ),
-                      decoration: BoxDecoration(
-                        color: Color(0xffC4C4C4).withOpacity(0.5),
-                        borderRadius: BorderRadius.circular(50),
-                      ),
-                      child: Row(
-                        children: [
-                          Image.asset('assets/png/star.png'),
-                          text(
-                            context,
-                            "4.5",
-                            65.sp,
-                            Colors.black,
-                            bold: true,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-          // CircleAvatar(
-          //   radius: 130.r,
-          //   backgroundImage: const AssetImage(
-          //     "assets/png/wp2398385 1.png",
-          //   ),
-          // ),
-          SizedBox(
-            width: AppSizes.dynamicWidth(context, 0.03),
-          ),
-          Padding(
-            padding: EdgeInsets.only(top: AppSizes.dynamicHeight(context, 0.03)),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                text(
-                  context,
-                  "SAKIB ABDULLAH",
-                  70.sp,
-                  AppColors.customBlack,
-                  bold: true,
-                ),
-                Wrap(
-                  children: [
-                    text(context, "bangladesh University", 65.sp, AppColors.customBlack, maxLines: 1),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          SizedBox(
-            width: AppSizes.dynamicWidth(context, 0.01),
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            // crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Container(
-                height: 25.h,
-                width: AppSizes.dynamicWidth(context, 0.2),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(75.r),
-                ),
-                child: Center(child: text(context, "450/hr", 65.sp, Colors.black)),
-              ),
-              Container(
-                height: 25.h,
-                width: AppSizes.dynamicWidth(context, 0.2),
-                decoration: BoxDecoration(
-                  color: AppColors.greenDark,
-                  borderRadius: BorderRadius.circular(75.r),
-                ),
-                child: Center(child: text(context, "Message", 65.sp, Colors.white)),
-              ),
-            ],
-          ),
-          SizedBox(
-            width: 20.w,
-          ),
-        ],
-      ),
-    ),
-  );
-}
+// Widget profileCard(context) {
+//   return Flexible(
+//     child: Container(
+//       // width: 700.w,
+//       height: 90.h,
+//       decoration: BoxDecoration(
+//         color: AppColors.customGrey,
+//         borderRadius: BorderRadius.circular(45.r),
+//       ),
+//       // padding: EdgeInsets.symmetric(
+//       //   horizontal: 54.w,
+//       //   vertical: 5.h,
+//       // ),
+//       margin: EdgeInsets.only(bottom: 14.h),
+//       child: Row(
+//         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//         children: [
+//           SizedBox(
+//             width: 20.w,
+//           ),
+//           Column(
+//             mainAxisAlignment: MainAxisAlignment.center,
+//             children: [
+//               Stack(
+//                 //overflow: Overflow.visible,
+//                 clipBehavior: Clip.none,
+//                 children: [
+//                   CircleAvatar(
+//                     radius: 130.r,
+//                     backgroundImage: const AssetImage(
+//                       "assets/png/wp2398385 1.png",
+//                     ),
+//                   ),
+//                   Positioned(
+//                     top: -5,
+//                     right: -40,
+//                     child: Container(
+//                       padding: EdgeInsets.symmetric(
+//                         horizontal: 7,
+//                         vertical: 3,
+//                       ),
+//                       decoration: BoxDecoration(
+//                         color: Color(0xffC4C4C4).withOpacity(0.5),
+//                         borderRadius: BorderRadius.circular(50),
+//                       ),
+//                       child: Row(
+//                         children: [
+//                           Image.asset('assets/png/star.png'),
+//                           text(
+//                             context,
+//                             "4.5",
+//                             65.sp,
+//                             Colors.black,
+//                             bold: true,
+//                           ),
+//                         ],
+//                       ),
+//                     ),
+//                   ),
+//                 ],
+//               ),
+//             ],
+//           ),
+//           // CircleAvatar(
+//           //   radius: 130.r,
+//           //   backgroundImage: const AssetImage(
+//           //     "assets/png/wp2398385 1.png",
+//           //   ),
+//           // ),
+//           SizedBox(
+//             width: AppSizes.dynamicWidth(context, 0.03),
+//           ),
+//           Padding(
+//             padding: EdgeInsets.only(top: AppSizes.dynamicHeight(context, 0.03)),
+//             child: Column(
+//               mainAxisAlignment: MainAxisAlignment.start,
+//               crossAxisAlignment: CrossAxisAlignment.start,
+//               children: [
+//                 text(
+//                   context,
+//                   "SAKIB ABDULLAH",
+//                   70.sp,
+//                   AppColors.customBlack,
+//                   bold: true,
+//                 ),
+//                 Wrap(
+//                   children: [
+//                     text(context, "bangladesh University", 65.sp, AppColors.customBlack, maxLines: 1),
+//                   ],
+//                 ),
+//               ],
+//             ),
+//           ),
+//           SizedBox(
+//             width: AppSizes.dynamicWidth(context, 0.01),
+//           ),
+//           Column(
+//             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//             // crossAxisAlignment: CrossAxisAlignment.end,
+//             children: [
+//               Container(
+//                 height: 25.h,
+//                 width: AppSizes.dynamicWidth(context, 0.2),
+//                 decoration: BoxDecoration(
+//                   color: Colors.white,
+//                   borderRadius: BorderRadius.circular(75.r),
+//                 ),
+//                 child: Center(child: text(context, "450/hr", 65.sp, Colors.black)),
+//               ),
+//               Container(
+//                 height: 25.h,
+//                 width: AppSizes.dynamicWidth(context, 0.2),
+//                 decoration: BoxDecoration(
+//                   color: AppColors.greenDark,
+//                   borderRadius: BorderRadius.circular(75.r),
+//                 ),
+//                 child: Center(child: text(context, "Message", 65.sp, Colors.white)),
+//               ),
+//             ],
+//           ),
+//           SizedBox(
+//             width: 20.w,
+//           ),
+//         ],
+//       ),
+//     ),
+//   );
+// }
 
 Widget notificationCard(context) {
   return Flexible(
@@ -557,7 +574,8 @@ notificationPopUp(BuildContext context) {
       context: context,
       builder: (BuildContext context) {
         return Dialog(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(35.r)), //this right here
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(35.r)), //this right here
           child: Container(
             // width: 450.w,
             height: 700.h,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:heilo_flutter/src/components/temp/text_widget.dart';
 import 'package:heilo_flutter/src/utils/color_const.dart';
+import 'package:heilo_flutter/src/utils/dynamic_sizes.dart';
 
 class ProfileCard extends StatelessWidget {
   final String name;
@@ -9,28 +10,32 @@ class ProfileCard extends StatelessWidget {
   final String rating;
   final String institute;
   final String rate;
+  final bool mobileView;
 
-  const ProfileCard({
-    Key? key,
-    required this.name,
-    this.image,
-    required this.rating,
-    required this.institute,
-    required this.rate,
-  }) : super(key: key);
+  const ProfileCard(
+      {Key? key,
+      required this.name,
+      this.image,
+      required this.rating,
+      required this.institute,
+      required this.rate,
+      this.mobileView = false})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 130.h,
+      height: mobileView ? 90.h : 130.h,
       decoration: BoxDecoration(
         color: AppColors.customGrey,
-        borderRadius: BorderRadius.circular(10.r),
+        borderRadius: BorderRadius.circular(mobileView ? 45.r : 10.r),
       ),
-      padding: EdgeInsets.symmetric(
-        horizontal: 10.w,
-        vertical: 14.h,
-      ),
+      padding: mobileView
+          ? EdgeInsets.zero
+          : EdgeInsets.symmetric(
+              horizontal: 10.w,
+              vertical: 14.h,
+            ),
       margin: EdgeInsets.only(bottom: 14.h),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -42,7 +47,7 @@ class ProfileCard extends StatelessWidget {
                 clipBehavior: Clip.none,
                 children: [
                   CircleAvatar(
-                    radius: 46.r,
+                    radius: mobileView ? 130.r : 46.r,
                     backgroundImage: AssetImage(
                       image ?? "assets/png/wp2398385 1.png",
                     ),
@@ -52,7 +57,7 @@ class ProfileCard extends StatelessWidget {
                     right: -40,
                     child: Container(
                       padding: EdgeInsets.symmetric(
-                        horizontal: 10,
+                        horizontal: mobileView ? 7 : 10,
                         vertical: 3,
                       ),
                       decoration: BoxDecoration(
@@ -65,7 +70,7 @@ class ProfileCard extends StatelessWidget {
                           text(
                             context,
                             rating,
-                            15,
+                            mobileView ? 65.sp : 15.sp,
                             Colors.black,
                             bold: true,
                           ),
@@ -84,14 +89,14 @@ class ProfileCard extends StatelessWidget {
               text(
                 context,
                 name,
-                20.sp,
+                mobileView ? 70.sp : 20.sp,
                 AppColors.customBlack,
                 bold: true,
               ),
               text(
                 context,
                 institute,
-                14.sp,
+                mobileView ? 65.sp : 14.sp,
                 AppColors.customBlack,
               ),
             ],
@@ -100,27 +105,31 @@ class ProfileCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
-                height: 42.h,
-                width: 146.w,
+                height: mobileView ? 25.h : 42.h,
+                width: mobileView ? AppSizes.dynamicWidth(context, 0.2) : 146.w,
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(10.r),
-                ),
-                child: Center(child: text(context, "${rate}/hr", 18.sp, Colors.black)),
-              ),
-              Container(
-                height: 42.h,
-                width: 146.w,
-                decoration: BoxDecoration(
-                  color: AppColors.greenDark,
-                  borderRadius: BorderRadius.circular(10.r),
+                  borderRadius: BorderRadius.circular(mobileView ? 75.r : 10.r),
                 ),
                 child: Center(
-                  child: text(context, "Message", 18.sp, Colors.white),
+                    child: text(context, "${rate}/hr",
+                        mobileView ? 65.sp : 18.sp, Colors.black)),
+              ),
+              Container(
+                height: mobileView ? 25.h : 42.h,
+                width: mobileView ? AppSizes.dynamicWidth(context, 0.2) : 146.w,
+                decoration: BoxDecoration(
+                  color: AppColors.greenDark,
+                  borderRadius: BorderRadius.circular(mobileView ? 75.h : 10.r),
+                ),
+                child: Center(
+                  child: text(context, "Message", mobileView ? 65.sp : 18.sp,
+                      Colors.white),
                 ),
               ),
             ],
           ),
+          mobileView ? SizedBox(width: 20.w) : const SizedBox(width: 0)
         ],
       ),
     );
