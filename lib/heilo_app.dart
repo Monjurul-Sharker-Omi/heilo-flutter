@@ -1,6 +1,7 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:heilo_flutter/src/components/animations/loading_animation.dart';
 import 'package:heilo_flutter/src/router/router_helper.dart';
 import 'package:heilo_flutter/src/screens/common/intro/intro.dart';
 
@@ -21,7 +22,7 @@ class _HeiloAppState extends State<HeiloApp> {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(1920, 982),
+      designSize: window.physicalSize.width < 650 ? const Size(414, 896) : const Size(1920, 982),
       builder: (context, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Heilo',

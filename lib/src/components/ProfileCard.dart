@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:heilo_flutter/src/components/temp/text_widget.dart';
 import 'package:heilo_flutter/src/utils/color_const.dart';
-import 'package:heilo_flutter/src/utils/dynamic_sizes.dart';
 
 class ProfileCard extends StatelessWidget {
   final String name;
@@ -13,49 +12,52 @@ class ProfileCard extends StatelessWidget {
   final bool mobileView;
 
   const ProfileCard(
-      {Key? key,
-      required this.name,
-      this.image,
-      required this.rating,
-      required this.institute,
-      required this.rate,
-      this.mobileView = false})
+      {Key? key, required this.name, this.image, required this.rating, required this.institute, required this.rate, this.mobileView = false})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: mobileView ? 90.h : 130.h,
+      // height: mobileView ? 90.h : 130.h,
       decoration: BoxDecoration(
         color: AppColors.customGrey,
-        borderRadius: BorderRadius.circular(mobileView ? 45.r : 10.r),
+        borderRadius: BorderRadius.circular(10),
       ),
-      padding: mobileView
-          ? EdgeInsets.zero
-          : EdgeInsets.symmetric(
-              horizontal: 10.w,
-              vertical: 14.h,
-            ),
-      margin: EdgeInsets.only(bottom: 14.h),
+      padding: EdgeInsets.symmetric(
+        horizontal: 10.w,
+        vertical: 14.h,
+      ),
+      margin: EdgeInsets.only(bottom: 10.h),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Stack(
-                clipBehavior: Clip.none,
-                children: [
-                  CircleAvatar(
-                    radius: mobileView ? 130.r : 46.r,
-                    backgroundImage: AssetImage(
-                      image ?? "assets/png/wp2398385 1.png",
+          CircleAvatar(
+            radius: mobileView ? 130.r : 46.r,
+            backgroundImage: AssetImage(
+              image ?? "assets/png/wp2398385 1.png",
+            ),
+          ),
+          SizedBox(
+            width: 8.w,
+          ),
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    text(
+                      context,
+                      name,
+                      mobileView ? 70.sp : 20.sp,
+                      AppColors.customBlack,
+                      bold: true,
                     ),
-                  ),
-                  Positioned(
-                    top: -5,
-                    right: -40,
-                    child: Container(
+                    SizedBox(
+                      width: 8.w,
+                    ),
+                    Container(
                       padding: EdgeInsets.symmetric(
                         horizontal: mobileView ? 7 : 10,
                         vertical: 3,
@@ -66,7 +68,10 @@ class ProfileCard extends StatelessWidget {
                       ),
                       child: Row(
                         children: [
-                          Image.asset('assets/png/star.png'),
+                          Image.asset(
+                            'assets/png/star.png',
+                            scale: 1.3,
+                          ),
                           text(
                             context,
                             rating,
@@ -77,54 +82,59 @@ class ProfileCard extends StatelessWidget {
                         ],
                       ),
                     ),
-                  ),
-                ],
-              ),
-            ],
+                  ],
+                ),
+                text(
+                  context,
+                  institute,
+                  mobileView ? 60.sp : 14.sp,
+                  AppColors.customBlack,
+                ),
+              ],
+            ),
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              text(
-                context,
-                name,
-                mobileView ? 70.sp : 20.sp,
-                AppColors.customBlack,
-                bold: true,
-              ),
-              text(
-                context,
-                institute,
-                mobileView ? 65.sp : 14.sp,
-                AppColors.customBlack,
-              ),
-            ],
+          SizedBox(
+            width: 16.w,
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
-                height: mobileView ? 25.h : 42.h,
-                width: mobileView ? AppSizes.dynamicWidth(context, 0.2) : 146.w,
+                padding: EdgeInsets.symmetric(vertical: 2.h, horizontal: 16.w),
+
+                // height: mobileView ? 25.h : 42.h,
+                // width: mobileView ? AppSizes.dynamicWidth(context, 0.2) : 146.w,
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(mobileView ? 75.r : 10.r),
+                  borderRadius: BorderRadius.circular(20),
                 ),
-                child: Center(
-                    child: text(context, "${rate}/hr",
-                        mobileView ? 65.sp : 18.sp, Colors.black)),
+                child: Row(
+                  children: [
+                    text(
+                      context,
+                      rate,
+                      mobileView ? 65.sp : 18.sp,
+                      Colors.black,
+                    ),
+                    text(
+                      context,
+                      "/hr",
+                      mobileView ? 65.sp : 18.sp,
+                      Colors.black,
+                    ),
+                  ],
+                ),
               ),
               Container(
-                height: mobileView ? 25.h : 42.h,
-                width: mobileView ? AppSizes.dynamicWidth(context, 0.2) : 146.w,
+                padding: EdgeInsets.symmetric(vertical: 2.h, horizontal: 16.w),
+                // height: mobileView ? 25.h : 42.h,
+                // width: mobileView ? AppSizes.dynamicWidth(context, 0.2) : 146.w,
                 decoration: BoxDecoration(
                   color: AppColors.greenDark,
-                  borderRadius: BorderRadius.circular(mobileView ? 75.h : 10.r),
+                  borderRadius: BorderRadius.circular(20),
                 ),
                 child: Center(
-                  child: text(context, "Message", mobileView ? 65.sp : 18.sp,
-                      Colors.white),
+                  child: text(context, "Message", mobileView ? 65.sp : 18.sp, Colors.white),
                 ),
               ),
             ],
